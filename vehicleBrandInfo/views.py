@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from .models import VehicleBrandInfo
 from .forms import VehicleBrandInfoForm
 
-#import pillow
 import qrcode
 import time
 import os

@@ -26,7 +26,7 @@ SECRET_KEY = '!aqh_#(on!g#xbyt(22hc-75u=%$7fhwzp1$4do4v!h49x0(1x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['95.163.203.111']
+ALLOWED_HOSTS = ['95.163.203.111', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -125,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'media').replace('\\', '/'),)
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfk').replace('\\', '/'),)
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
 MEDIA_URL = '/media/'                                                 #url映射
