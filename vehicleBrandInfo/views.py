@@ -4,11 +4,12 @@ from django.http import HttpResponse
 from .models import VehicleBrandInfo
 from .forms import VehicleBrandInfoForm
 
+#import pillow
 import qrcode
 import time
 import os
 
-QRURL_ENDPOINT = 'http://localhost:8000'
+QRURL_ENDPOINT = 'http://95.163.203.111:8080/'
 # Create your views here.
 #表单展示
 def info(request, info_pk):
@@ -36,10 +37,10 @@ def form2QRcode(request):
         qr.add_data(code_url)
         img = qr.make_image()  
         img_name = str(int(time.time()*1000))+'.png'
-        dest = os.path.join(settings.MEDIA_ROOT, img_name) 
+        dest = os.path.join(settings.STATIC_ROOT, 'media/', img_name) 
         img.save(dest)
-
-        return render(request, 'vehicleBrandInfo/QRcodeshow.html', context={'img_name':img_name, 'code_url':code_url})
+        img_dest = 'media/' + img_name
+        return render(request, 'vehicleBrandInfo/QRcodeshow.html', context={'img_name':img_dest, 'code_url':code_url})
 
 #表单界面
 def form_to_fill(request):
