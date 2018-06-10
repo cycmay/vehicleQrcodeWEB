@@ -1,0 +1,5 @@
+Django==1.10
+Pillow==5.1.0
+qrcode==6.0
+six==1.11.0
+uWSGI==2.0.17
