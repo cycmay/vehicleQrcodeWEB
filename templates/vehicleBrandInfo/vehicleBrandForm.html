@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html style="overflow-x:auto;overflow-y:auto;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>包车信息管理</title>
@@ -21,7 +22,9 @@
     </style>
 
 </head>
-<body id="" class="hideScroll  pace-done" style=""><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+<body id="" class="hideScroll  pace-done" style="">
+    {% if request.session.is_login %}
+    <div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div><i id="btnMenu" class="icon-th-list" style="cursor:pointer;float:right;margin:10px;"></i><div id="menuContent"></div>
@@ -107,5 +110,7 @@
         </table>
         <input type="submit" value="提交信息" />
     </form>
-
+{% else %}
+    <h1>你尚未登录，只能访问公开内容！</h1>
+{% endif %}
 </body></html>

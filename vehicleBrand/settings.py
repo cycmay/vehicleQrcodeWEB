@@ -26,7 +26,7 @@ SECRET_KEY = '!aqh_#(on!g#xbyt(22hc-75u=%$7fhwzp1$4do4v!h49x0(1x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['95.163.203.111']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vehicleBrandInfo',
+    'login',
 ]
 
 MIDDLEWARE = [

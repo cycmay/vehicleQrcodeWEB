@@ -16,11 +16,17 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.conf import settings
 from django.conf.urls.static import static 
-from django.contrib import admin 
+from django.contrib import admin
+
+from login import views as login_views 
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^index/', login_views.index),
+    url(r'^login/', login_views.login),
+    #url(r'^register/', login_views.register),
+    url(r'^logout/', login_views.logout),
     url(r'^vehicleBrandInfo/', include('vehicleBrandInfo.urls'), name='vehicleBrandInfo'),
 ]#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
