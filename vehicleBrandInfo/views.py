@@ -9,7 +9,7 @@ import qrcode
 import time
 import os
 
-QRURL_ENDPOINT = 'http://95.163.203.111:8080/'
+QRURL_ENDPOINT = 'http://23.83.247.70:8080'
 # Create your views here.
 #表单展示
 def info(request, info_pk):
