@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
 from django.conf import settings
 from django.http import HttpResponse 
 from .models import VehicleBrandInfo
@@ -44,8 +45,14 @@ def form2QRcode(request):
 
 #表单界面
 def form_to_fill(request):
-    form = VehicleBrandInfoForm()
-    context = {
-        'form': form,
-    }
-    return render(request, 'vehicleBrandInfo/vehicleBrandForm.html', context=context)
+    if request.session.get('is_login', None):
+        form = VehicleBrandInfoForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'vehicleBrandInfo/vehicleBrandForm.html', context=context)
+    else:
+        return redirect('/login/login.html')
+
+    return redirect("/index/")
+    
