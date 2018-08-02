@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!aqh_#(on!g#xbyt(22hc-75u=%$7fhwzp1$4do4v!h49x0(1x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['23.83.247.70', "127.0.0.1"]
 
@@ -129,3 +129,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfk').replace('\\', '/'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
 MEDIA_URL = 'media/'                                                 #url映射
+
+
+#  用户关闭网页后session失效
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# 1*60 分钟后失效
+SESSION_COOKIE_AGE = 60*1
