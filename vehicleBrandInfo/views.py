@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.conf import settings
+from django.conf import settings 
 from django.http import HttpResponse 
 from .models import VehicleBrandInfo
 from .forms import VehicleBrandInfoForm

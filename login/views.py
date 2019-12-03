@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from . import models
 from . import forms
-from vehicleBrand import settings
+#from vehicleBrand import settings
 import datetime
 
 # Create your views here.
