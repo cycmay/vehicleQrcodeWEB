@@ -15,5 +15,5 @@ COPY Pipfile.lock /app/Pipfile.lock
 RUN pipenv install --system --deploy --ignore-pipfile
 
 COPY ./compose/local/django/start.sh /start.sh
-RUN sed -i 's/\r//' /start.sh
+
 RUN chmod +x /start.sh

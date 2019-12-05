@@ -5,7 +5,7 @@ volumes:
   database:
 
 services:
-    vehicelBrand:
+  vehiclebrand:
     build:
       context: .
       dockerfile: compose/production/django/Dockerfile
@@ -28,7 +28,8 @@ services:
     image: vehiclebrand_nginx
     container_name: vehiclebrand_nginx
     volumes:
-      - static:/apps/vehiclebrand/static
+      - static:/app/static
     ports:
       - "80:80"
       - "443:443"
+# vehiclebrand 是本项目名

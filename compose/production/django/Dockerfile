@@ -17,5 +17,5 @@ RUN pipenv install --system --deploy --ignore-pipfile
 COPY . /app
 
 COPY ./compose/production/django/start.sh /start.sh
-RUN sed -i 's/\r//' /start.sh
+
 RUN chmod +x /start.sh
