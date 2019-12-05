@@ -4,12 +4,12 @@ volumes:
   database_local:
 
 services:
-  vehicleBrand_local:
+  vehiclebrand_local:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: vehicleBrand_local
-    container_name: vehicleBrand_local
+    image: vehiclebrand_local
+    container_name: vehiclebrand_local
     working_dir: /app
     volumes:
       - database_local:/app/database

@@ -104,5 +104,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# docker image
+*.dimg
+
 # mypy
 .mypy_cache/
