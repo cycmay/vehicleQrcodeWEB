@@ -6,6 +6,7 @@ from .models import VehicleBrandInfo
 from .forms import VehicleBrandInfoForm
 
 #import pillow
+# 需要pillow环境
 import qrcode
 import time
 import os
