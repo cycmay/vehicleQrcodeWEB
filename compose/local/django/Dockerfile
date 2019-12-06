@@ -2,9 +2,11 @@ FROM python:3.7-alpine
 
 ENV PYTHONUNBUFFERED 1
 
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirror.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 RUN apk update \
   # Pillow dependencies
-  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+ && apk add g++ jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
 
 WORKDIR /app
 
