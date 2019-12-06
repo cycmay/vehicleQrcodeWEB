@@ -10,7 +10,6 @@ import qrcode
 import time
 import os
 
-QRURL_ENDPOINT = 'http://23.83.247.70:8080'
 # Create your views here.
 #表单展示
 def info(request, info_pk):
@@ -32,7 +31,7 @@ def form2QRcode(request):
         }
         all_pk = len(VehicleBrandInfo.objects.all())
         info = VehicleBrandInfo.objects.filter(pk=all_pk)
-        code_url = QRURL_ENDPOINT + '/vehicleBrandInfo/info/' + str(all_pk)
+        code_url = settings.QRURL_ENDPOINT + '/vehicleBrandInfo/info/' + str(all_pk)
 
         qr=qrcode.QRCode(version=3, box_size=5, border=0)
         qr.add_data(code_url)

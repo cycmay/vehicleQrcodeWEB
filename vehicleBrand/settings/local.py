@@ -7,3 +7,4 @@ SECRET_KEY = '!aqh_#(on!g#xbyt(22hc-75u=%$7fhwzp1$4do4v!h49x0(1x'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+QRURL_ENDPOINT = 'http://127.0.0.1'
