@@ -9,8 +9,8 @@
     <title>{% block title %}base{% endblock %}</title>
 
     <!-- Bootstrap -->
-    <link href="{% static 'login/css/bootstrap.min.css' %}" rel="stylesheet">
-
+    <link href="{% static 'vehicleBrandInfo/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'vehicleBrandInfo/css/style.css' %}" type="text/css" rel="stylesheet">    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="my-nav">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/vehicleBrandInfo/fillform">填写包车信息</a></li>
+            <li class="active"><a href="/vehicleBrandInfo/fillform.html">填写包车信息</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               {% if request.session.is_login %}

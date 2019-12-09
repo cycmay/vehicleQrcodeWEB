@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from . import models
+from .models import User
 from . import forms
-#from vehicleBrand import settings
 import datetime
 
 # Create your views here.
@@ -15,6 +14,7 @@ def hash_code(s, salt='vehicleBrand'):
     s += salt
     h.update(s.encode())
     return h.hexdigest()
+
 
 """
 def make_confirm_string(user):
@@ -54,37 +54,36 @@ def index(request):
 
 def login(request):
     if request.session.get('is_login', None):
-        return redirect('/vehicleBrandInfo/form_to_fill.html')
+        return redirect('/vehicleBrandInfo/fillform.html')
     if request.method == 'POST':
         login_form = forms.UserForm(request.POST)
         message = '所有的字段都必须填写！'
         if login_form.is_valid():
             username = login_form.cleaned_data.get('username')
             password = login_form.cleaned_data.get('password')
-            # ....
-            try:
-                user = models.User.objects.get(name=username)
-            except:
+            user = User.objects.filter(name=username).first()
+            if user:
+                if user._check_password(password):
+                    login(request, user)
+                    return redirect('/vehicleBrandInfo/form_to_fill.html')
+                else:
+                    message = '密码错误'
+                    return render(request, 'login/login.html', locals())
+                """
+                if not user.has_confirmed:
+                    message = '该用户还未通过邮件确认！不能登录！'
+                    return render(request, 'login/login.html', locals())
+                """
+            else:
                 message = '用户不存在'
                 return render(request, 'login/login.html', locals())
-            """
-            if not user.has_confirmed:
-                message = '该用户还未通过邮件确认！不能登录！'
-                return render(request, 'login/login.html', locals())
-			"""
-            if user.password == hash_code(password):
-                request.session['is_login'] = True
-                request.session['user_id'] = user.id
-                request.session['user_name'] = user.name
-                return redirect('/vehicleBrandInfo/form_to_fill.html')
-            else:
-                message = '密码错误'
-                return render(request, 'login/login.html', locals())
+
         else:
             return render(request, 'login/login.html', locals())
 
     login_form = forms.UserForm()
     return render(request, 'login/login.html', locals())
+
 
 """
 def register(request):
@@ -131,11 +130,13 @@ def register(request):
     return render(request, 'login/register.html', locals())
 """
 
+
 def logout(request):
     if not request.session.get('is_login', None):
         return redirect('/index/')
     request.session.flush()
     return redirect('/index/')
+
 
 """
 def user_confirm(request):

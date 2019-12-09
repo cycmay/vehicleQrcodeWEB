@@ -114,7 +114,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfk').replace('\\', '/'),)
+# 开发环境下Django服务器的静态文件目录
+STATICFILES_DIRS = (
+    ('media', os.path.join(STATIC_ROOT, 'media').replace('\\', '/')),
+)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
 MEDIA_URL = 'media/'                                                 #url映射
 
@@ -122,4 +125,4 @@ MEDIA_URL = 'media/'                                                 #url映射
 #  用户关闭网页后session失效
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # 1*60 分钟后失效
-SESSION_COOKIE_AGE = 60*1
+SESSION_COOKIE_AGE = 60*10

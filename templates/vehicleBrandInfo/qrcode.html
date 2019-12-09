@@ -1,0 +1,13 @@
+{% extends 'vehicleBrandInfo/base.html' %}
+{% block title %}生成的二维码{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="mine-form">
+    <img src="{% static img_name %}" />
+</br>
+    <h3><a href="{{ code_url }}"> 点击此处即可查看包车信息 </a> </h3>
+</div>
+
+{% endblock %}
+

@@ -1,6 +1,4 @@
 #!/bin/sh
-
-# media目录保存项目生成的图片
 dir="./static/media"
 if [ ! -d "$dir" ];then
 mkdir -p $dir

@@ -1,0 +1,98 @@
+{% extends 'vehicleBrandInfo/base.html' %}
+{% block title %}填写包车信息{% endblock %}
+{% block content %}
+
+    {% if request.session.is_login %}
+    
+    <div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div></div><i id="btnMenu" class="icon-th-list" style="cursor:pointer;float:right;margin:10px;"></i><div id="menuContent"></div>
+          
+              
+          <form  action="{% url 'vehicleBrandInfo:form2QRcode'%}" method="post" class="info-form mine-form">
+           {% csrf_token %}
+              <table class="table table-bordered  table-condensed dataTables-example dataTable no-footer">
+                 <tbody>
+                      <tr>
+                          
+                          <td class="width-100" colspan="2" style="text-align: center;font-weight: bold;font-size: 30px;">
+                              客运包车运次备案信息
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">起始地：</label></td>
+                          <td class="width-50">
+                              {{ form.start_place }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">终到地：</label></td>
+                          <td class="width-50">
+                              {{ form.end_place }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">标志牌顺序号：</label></td>
+                          <td class="width-50">
+                              {{ form.sign_serial_number }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">车牌号：</label></td>
+                          <td class="width-50">
+                              {{ form.license_plate }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">运输企业：</label></td>
+                          <td class="width-50">
+                              {{ form.transport_company }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">驾驶员姓名：</label></td>
+                          <td class="width-50">
+                              {{ form.driver_name }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">企业签发人：</label></td>
+                          <td class="width-50">
+                              {{ form.business_issuer }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">主要途径地：</label></td>
+                          <td class="width-50">
+                              {{ form.main_apporach }}
+                          </td>
+                          
+                      </tr>
+                      <tr>
+                          <td class="width-50 active"><label class="pull-right">有效期：</label></td>
+                          <td class="width-50">
+                              {{ form.effective_date }}
+                          </td>
+                          
+                      </tr>
+                      
+                      
+                  </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary" style="text-align: center;">提交</button>
+          </form>
+
+    {% else %}
+    <h1>你尚未登录，只能访问公开内容！</h1>
+    {% endif %}
+
+{% endblock %}

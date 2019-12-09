@@ -6,10 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==1.10"
 pillow = "*"
 gunicorn = "==19.9.0"
 qrcode = "==6.0"
+django = "*"
 
 [requires]
 python_version = "3.7"

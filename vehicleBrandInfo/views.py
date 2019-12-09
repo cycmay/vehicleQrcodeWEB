@@ -19,7 +19,7 @@ def info(request, info_pk):
     context = {
         'info':info,
     }
-    return render(request, 'vehicleBrandInfo/vehicleBrandInfo.html', context=context) 
+    return render(request, 'vehicleBrandInfo/information.html', context=context) 
 
 #表单填写完毕跳转
 def form2QRcode(request):
@@ -41,16 +41,16 @@ def form2QRcode(request):
         dest = os.path.join(settings.STATIC_ROOT, 'media/', img_name) 
         img.save(dest)
         img_dest = 'media/' + img_name
-        return render(request, 'vehicleBrandInfo/QRcodeshow.html', context={'img_name':img_dest, 'code_url':code_url})
+        return render(request, 'vehicleBrandInfo/qrcode.html', context={'img_name':img_dest, 'code_url':code_url})
 
 #表单界面
-def form_to_fill(request):
+def fillform(request):
     if request.session.get('is_login', None):
         form = VehicleBrandInfoForm()
         context = {
             'form': form,
         }
-        return render(request, 'vehicleBrandInfo/vehicleBrandForm.html', context=context)
+        return render(request, 'vehicleBrandInfo/fillform.html', context=context)
     else:
         return redirect('/login/login.html')
 

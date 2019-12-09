@@ -8003,7 +8003,7 @@ body.skin-5 {
     }
 }
 
-.navbar-header{width:60%;}
+.navbar-header{/*width:60%;*/}
 
 .max-width-50{
 	max-width:50px;
@@ -8068,4 +8068,10 @@ body.skin-5 {
 
 .hideScroll{
 	height:auto!important;
+}
+
+.mine-form{
+    width: 80%;
+    margin: auto;
+    display: block;
 }
