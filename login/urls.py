@@ -1,9 +1,11 @@
-from django.conf.urls import url
-from django.conf import settings
-from django.conf.urls.static import static 
-from . import views
+from django.contrib import admin
+from django.urls import path
+from login import views
 
-app_name = 'login'
 urlpatterns = [
-    url(r'^login', views.login, name='login'),
+    path('admin/', admin.site.urls),
+    path('index/', views.index),
+    path('login/', views.login),
+    path('register/', views.register),
+    path('logout/', views.logout),
 ]
