@@ -54,7 +54,7 @@ def index(request):
 
 def login(request):
     if request.session.get('is_login', None):
-        return redirect('/vehicleBrandInfo/form_to_fill.html')
+        return redirect('/vehicleBrandInfo/fillform.html')
     if request.method == 'POST':
         login_form = forms.UserForm(request.POST)
         message = '所有的字段都必须填写！'
