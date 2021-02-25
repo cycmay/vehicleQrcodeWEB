@@ -65,7 +65,7 @@ def login(request):
                 user = User.objects.get(name=username)
             except:
                 message = '用户不存在'
-                return render(request, 'login/login.html', locals())
+                return redirect('/index/')
             """
             if not user.has_confirmed:
                 message = '该用户还未通过邮件确认！不能登录！'
