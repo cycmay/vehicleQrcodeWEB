@@ -52,7 +52,5 @@ def fillform(request):
         }
         return render(request, 'vehicleBrandInfo/fillform.html', context=context)
     else:
-        return redirect('/login/login.html')
-
-    return redirect("/index/")
+        return redirect('/login/')
     

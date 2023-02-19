@@ -54,7 +54,7 @@ def index(request):
 
 def login(request):
     if request.session.get('is_login', None):
-        return redirect('/vehicleBrandInfo/fillform.html')
+        return redirect('/index/')
     if request.method == 'POST':
         login_form = forms.UserForm(request.POST)
         message = '所有的字段都必须填写！'
@@ -65,7 +65,7 @@ def login(request):
                 user = User.objects.get(name=username)
             except:
                 message = '用户不存在'
-                return render(request, 'login/login.html', locals())
+                return redirect('/index/')
             """
             if not user.has_confirmed:
                 message = '该用户还未通过邮件确认！不能登录！'
@@ -79,9 +79,9 @@ def login(request):
                 return redirect('/index/')
             else:
                 message = '密码错误'
-                return render(request, 'login/login.html', locals())
+                return render(request, '/login/', locals())
         else:
-            return render(request, 'login/login.html', locals())
+            return render(request, '/login/', locals())
 
     login_form = forms.UserForm()
     return render(request, 'login/login.html', locals())
